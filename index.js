@@ -11,13 +11,15 @@ memcached.initWithAutoDiscovery(function(err) {
     // defered until memcached is initialised with auto discovery
     CachingController = require('./lib/controllers/caching');
 
-    CachingController.getAd({ key: 'test-ad' })
+    var testAdRequest = { key: 'test-ad' };
+
+    CachingController.getAd(testAdRequest)
     .then(function(ad) {
         console.log('retrieve ad', ad);
     })
     .catch(function(err) {
-        console.log('Failred retriving ad', err.stack);
+        console.log('Failed retrieving ad [', testAdRequest.key, '] from memcached/s3', err.stack);
     });
-})
+});
 
 //caching.saveAd(sampleAd);

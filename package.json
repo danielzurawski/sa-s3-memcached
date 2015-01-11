@@ -4,7 +4,8 @@
   "description": "Write JSON to AWS S3",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --recursive --reporter=spec"
+    "test": "./node_modules/.bin/mocha --recursive --reporter=spec",
+    "start": "node index.js"
   },
   "author": "Daniel Zurawski",
   "license": "BSD-2-Clause",
