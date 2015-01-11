@@ -3,10 +3,6 @@ var SAAdS3 = require('./lib/model/SAAdS3')
   , AWS = require('aws-sdk')
   , memcached = require('./lib/memcached');
 
-// Important notes:
-// 1) ElastiCache cannot be accessed outside of the EC2 network, unless you setup port forwarding on your machine
-//
-
 
 function getAd(ad) {
     console.log('getAd called');
