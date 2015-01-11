@@ -1,0 +1,16 @@
+{
+  "name": "sa-s3-propagator",
+  "version": "0.0.0",
+  "description": "Write JSON to AWS S3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Zurawski",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "aws-sdk": "~2.1.5",
+    "bluebird": "~2.6.2",
+    "memcached": "~2.0.0"
+  }
+}
