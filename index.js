@@ -7,12 +7,12 @@ memcached.initWithAutoDiscovery(function(err) {
         console.log('Couldnt initialise memcached, err', err.stack);
         process.exit(1);
     }
-
     // defered until memcached is initialised with auto discovery
     CachingController = require('./lib/controllers/caching');
 
-    var testAdRequest = { key: 'test-ad' };
+    createSingleAdInS3();
 
+    var testAdRequest = { key: 'test-ad' };
     CachingController.getAd(testAdRequest)
     .then(function(ad) {
         console.log('retrieve ad', ad);
@@ -22,4 +22,15 @@ memcached.initWithAutoDiscovery(function(err) {
     });
 });
 
-//caching.saveAd(sampleAd);
+
+function createSingleAdInS3() {
+    var ad = { key: 'test-ad001', body: { hi: 1 }};
+
+    SAAdS3.putAd(ad)
+    .then(function(resp) {
+        console.log('saveAd response, etag', resp);
+    })
+    .catch(function(err) {
+        console.log('Save ad error', err.stack);
+    });
+}
