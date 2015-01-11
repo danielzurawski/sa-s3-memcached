@@ -1,5 +1,5 @@
 # Important notes
-1) ElastiCache cannot be accessed outside of the EC2 network, unless you setup port forwarding on your machine
+ElastiCache cannot be accessed outside of the EC2 network. This makes sense, as the latency you'd get would mean you get little to no benefit of having caching.
 
 # ElastiCache Memcached wrapper (memcached)
 The project implements an auto-discovery of Memcached nodes in AWS through the lib/memcached.js wrapper.

@@ -4,13 +4,15 @@
   "description": "Write JSON to AWS S3",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --recursive --reporter=spec"
   },
   "author": "Daniel Zurawski",
   "license": "BSD-2-Clause",
   "dependencies": {
     "aws-sdk": "~2.1.5",
     "bluebird": "~2.6.2",
-    "memcached": "~2.0.0"
+    "memcached": "~2.0.0",
+    "mocha": "~2.1.0",
+    "mockery": "~1.4.0"
   }
 }
