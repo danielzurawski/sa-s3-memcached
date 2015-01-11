@@ -10,7 +10,11 @@ var mockFakeMemcached = {
     getAd: function (adKey) {
         console.log('(mock) retrieving adKey from Memcached mock:', adKey);
         var ad = MEMCACHED_ADS[adKey]
-        if (ad) ad._source = 'memcached';
+
+        if (ad) {
+            ad = JSON.parse(ad);
+            ad._source = 'memcached';
+        }
 
         // can be undefined - that means its a cache miss
         return Promise.resolve(ad);
@@ -19,7 +23,7 @@ var mockFakeMemcached = {
         return new Promise(function(resolve, reject) {
             console.log('(mock) setting adKey in Memcached mock:', key);
             if (! key) throw new Error('(mock) ad key not provided to memcached put')
-            MEMCACHED_ADS[key] = body;
+            MEMCACHED_ADS[key] = JSON.stringify(body);
             resolve();
         });
     }
